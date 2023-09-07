@@ -1,0 +1,17 @@
+.app-nav ul{
+    list-style: none;
+    display: flex;
+}
+
+.app-nav ul li{
+    height: 4rem;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.app-nav ul li:hover {
+    background-color: #2d93ad;
+    cursor: pointer;
+}
