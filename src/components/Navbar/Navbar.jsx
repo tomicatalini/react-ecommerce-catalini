@@ -1,8 +1,15 @@
 import "./style.css";
 import CartWidget from "../CartWidget/CartWidget";
-import ItemListContainer from "../ItemListContainer/ItemListContainer";
 
 const Navbar = () => {
+    const menues = [
+        {id: 1, name: 'Inicio', active: true},
+        {id: 2, name: 'Mujer', active: true},
+        {id: 3, name: 'Hombre', active: true},
+        {id: 4, name: 'Accesorios', active: true},
+        {id: 5, name: 'Contacto', active: true},
+    ]
+    
     return(
         <div className="app-navbar">
             <header>
@@ -10,7 +17,17 @@ const Navbar = () => {
                 <span style={{fontStyle: 'italic'}}>ecommerce</span>
             </header>
             <div className="app-navbar-options">
-                <ItemListContainer/>
+                <nav className="app-nav">
+                    <ul>
+                    {
+                        menues.map( menu => {
+                            if(menu.active){
+                                return <li key={menu.id}>{menu.name}</li> 
+                            }
+                        })
+                    }
+                    </ul>
+                </nav>
                 <CartWidget/>
             </div>
         </div>
