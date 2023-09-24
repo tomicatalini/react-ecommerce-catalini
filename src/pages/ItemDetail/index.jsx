@@ -24,7 +24,7 @@ const ItemDetail = () => {
         isLoading
         ? <Spinner text={'loading...'}/>
         :   <Layout>
-                <Item key={product.id}
+                <Item clase={'item'}
                     id={product.id}
                     title={product.title}
                     price={product.price}

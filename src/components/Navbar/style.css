@@ -1,7 +1,7 @@
 .app-navbar {
     width: 100vw;
     height: 4rem;
-    background-color: #1989a6;
+    /* background-color: #1989a6; */
     padding: 0 1.5rem;
     
     display: flex;
@@ -33,6 +33,6 @@
 }
 
 .app-nav ul li:hover {
-    background-color: #2d93ad;
+    /* background-color: #2d93ad; */
     cursor: pointer;
 }

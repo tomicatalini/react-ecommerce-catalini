@@ -2,7 +2,7 @@ import "./style.css"
 import { useState } from "react";
 
 const CartWidget = () => {
-    const [cant] = useState(15);
+    const [cant] = useState(0);
 
     return(
         <div className="cart-container">
