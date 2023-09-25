@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import "./style.css";
 import Spinner from "../utils/Spinner/Spinner";
-import Item from "../Item/Item";
 import { useParams } from "react-router-dom";
 import CategoryListContainer from "../CategoryListContainer/CategoryListContainer";
 import ItemList from "../ItemList/ItemList";

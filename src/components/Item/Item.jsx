@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-
-const Item = ({id, title, price, category, description, image}) => {
+const Item = ({title, price, category, description, image}) => {
 
     return (
         <div className="flex flex-row gap-4 py-8">
