@@ -4,6 +4,7 @@ import Spinner from "../utils/Spinner/Spinner";
 import Item from "../Item/Item";
 import { useParams } from "react-router-dom";
 import CategoryListContainer from "../CategoryListContainer/CategoryListContainer";
+import ItemList from "../ItemList/ItemList";
 
 //Contenedor de Productos
 // Puede tener una categoria, la cual filtra los productos
@@ -46,15 +47,13 @@ const ItemListContainer = () => {
         : (
             <div>
                 <CategoryListContainer categories={categories} load={setIsLoading}/>
-                <div className="flex flex-row flex-wrap gap-16">
+                <div className="m-8 grid grid-cols-12 grid-flow-row auto-rows-auto gap-8">
                     {
                         products.map( product => (
-                            <Item key={product.id}
-                                clase={'item-list'}
+                            <ItemList key={product.id}
                                 id={product.id}
                                 title={product.title}
                                 price={product.price}
-                                category={product.category}
                                 image={product.image}
                             />
                         ))

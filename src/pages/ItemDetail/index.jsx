@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import Spinner from "../../components/utils/Spinner/Spinner";
-import Item from "../../components/Item/Item";
 import Layout from "../../components/Layout/Layout";
+import Item from "../../components/Item/Item";
 
 const ItemDetail = () => {
     const {id} = useParams();
@@ -24,7 +24,7 @@ const ItemDetail = () => {
         isLoading
         ? <Spinner text={'loading...'}/>
         :   <Layout>
-                <Item clase={'item'}
+                <Item
                     id={product.id}
                     title={product.title}
                     price={product.price}
