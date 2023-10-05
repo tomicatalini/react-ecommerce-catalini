@@ -1,18 +1,30 @@
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const ItemList = ({id, title, price, image}) => {
 
     return (
-        <div className={'py-4 flex flex-col shadow-lg rounder-md col-span-3 h-80 hover:scale-110'}>
-            <img src={image} alt="Product Image" className="h-1/2 mx-auto"/>
-            <div className="flex-1 my-2 p-2 border-t ">
-                <p className="font-bold text-xl">$ {price}</p>
-                <p className="text-sm">{title}</p>
-            </div>
-            <div className="px-4">
-                <Link className="p-1 font-bold text-white rounded-sm flex align-center justify-center bg-violet-500" to={`/item/${id}`}>Ver Detalle</Link>
-            </div>
-        </div>
+        <Card className="col-span-12 sm:col-span-6 lg:col-span-3  flex flex-col" raised={true}>
+            <CardMedia
+                component="img"
+                className="mx-auto my-2"
+                sx={{height:150, backgroundSize: 'contain', width: 'auto', objectFit: 'fill'}}
+                image={image}
+                title={title}/>
+            <CardContent className="flex-1">
+                <Typography gutterBottom variant="h5" component="div">
+                    $ {price}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {title}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Link to={`/item/${id}`}>
+                    <Button size="small" variant="contained" color="primary">Detalle</Button>
+                </Link>
+            </CardActions>
+        </Card>
     )
 }
 

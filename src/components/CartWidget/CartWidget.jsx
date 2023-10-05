@@ -1,14 +1,19 @@
-import "./style.css"
 import { useState } from "react";
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Badge, IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
-    const [cant] = useState(0);
+    const [count, setCount] = useState(1);
 
     return(
-        <div className="cart-container">
-            <span className="material-symbols-outlined">shopping_cart</span>
-            <div className="cant-badge">{cant}</div>
-        </div>
+        <Link to={'/'}>
+            <IconButton color="warning">
+                <Badge badgeContent={count} color="warning">
+                    <ShoppingCartOutlinedIcon fontSize="large" color="action"/>
+                </Badge>
+            </IconButton>
+        </Link>
     )
 }
 

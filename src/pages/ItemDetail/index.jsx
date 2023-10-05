@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom"
 import Spinner from "../../components/utils/Spinner/Spinner";
 import Layout from "../../components/Layout/Layout";
 import Item from "../../components/Item/Item";
+import { db } from '../../firebase/db/db'
+import { doc, getDoc} from "firebase/firestore";
 
 const ItemDetail = () => {
     const {id} = useParams();
@@ -10,13 +12,26 @@ const ItemDetail = () => {
     const [product, setProduct] = useState({}); 
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
-            .then(res=>res.json())
-            .then(data=>{
-                data && setProduct(data);
+
+        const productRef = doc(db,"productos",id);
+
+        getDoc(productRef)
+            .then(res => {
+                res.exists() && setProduct({id: res.id, ...res.data()});
+                // if(res.exists()){
+                //     const product = {id: res.id, ...res.data()}
+                //     console.log(product);
+                // }
             })
-            .catch(err => console.warn(err))
-            .finally(() => setIsLoading(false));
+            .finally(()=>setIsLoading(false));
+
+        // fetch(`https://fakestoreapi.com/products/${id}`)
+        //     .then(res=>res.json())
+        //     .then(data=>{
+        //         data && setProduct(data);
+        //     })
+        //     .catch(err => console.warn(err))
+        //     .finally(() => setIsLoading(false));
     }, []);
 
     return (
@@ -26,7 +41,7 @@ const ItemDetail = () => {
         :   <Layout>
                 <Item
                     id={product.id}
-                    title={product.title}
+                    title={product.name}
                     price={product.price}
                     category={product.category}
                     description={product.description}

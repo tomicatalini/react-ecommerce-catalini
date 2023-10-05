@@ -1,6 +1,7 @@
-import "./style.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import { Avatar } from "@mui/material";
+import { deepOrange } from "@mui/material/colors";
 
 const Navbar = () => {
     const menues = [
@@ -12,11 +13,13 @@ const Navbar = () => {
     ]
     
     return(
-        <div className="app-navbar bg-violet-700">
-            <header className="flex flex-row items-center gap-2">
-                <h1 className="font-bold text-xl"><Link to={'/'}>Second Chance</Link></h1>
-                <span style={{fontStyle: 'italic'}}>ecommerce</span>
-            </header>
+        <header className="w-full h-16 px-4 flex flex-row items-center justify-between shadow-md">
+            
+            <Link to={'/'} className="flex flex-col text-orange-400">
+                <h1 className="font-[family: 'Signika'] text-2xl tracking-wider">SECOND CHANCE</h1>
+                <span className="m-0 ml-1 -mt-1 italic text-xs">ecommerce</span>
+            </Link>
+
             <div className="app-navbar-options">
                 <nav className="app-nav">
                     <ul>
@@ -29,9 +32,12 @@ const Navbar = () => {
                     }
                     </ul>
                 </nav>
-                <CartWidget/>
+                <div className="flex flex-row gap-4">
+                    <CartWidget/>
+                    <Avatar sx={{ bgcolor: deepOrange[400] }}>N</Avatar>
+                </div>
             </div>
-        </div>
+        </header>
     )
 }
 

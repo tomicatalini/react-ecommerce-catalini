@@ -3,6 +3,8 @@ import Spinner from "../utils/Spinner/Spinner";
 import { useParams } from "react-router-dom";
 import CategoryListContainer from "../CategoryListContainer/CategoryListContainer";
 import ItemList from "../ItemList/ItemList";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/db/db";
 
 //Contenedor de Productos
 // Puede tener una categoria, la cual filtra los productos
@@ -13,18 +15,35 @@ const ItemListContainer = () => {
     const [categories, setcategories] = useState([]);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then( data => {
-                if(name){
-                    console.log(name);
-                    setProducts(data.filter( product => product.category === name));
-                } else {
-                    setProducts(data);
+        const productsRef = collection(db,"productos");
+        let queryResult = name ? query(productsRef, where('category',"==",name)) : productsRef;
+
+        getDocs(queryResult)
+            .then(res => {
+                let collection = [];
+
+                if(!res.empty){
+                    collection = res.docs.map(doc => ({ id:doc.id, ...doc.data()}));
                 }
+
+                return collection;
             })
+            .then(prods => setProducts(prods))
             .catch(err => console.warn(err))
             .finally(() => setIsLoading(false));
+
+        // fetch('https://fakestoreapi.com/products')
+        //     .then(res => res.json())
+        //     .then( data => {
+        //         if(name){
+        //             console.log(name);
+        //             setProducts(data.filter( product => product.category === name));
+        //         } else {
+        //             setProducts(data);
+        //         }
+        //     })
+        //     .catch(err => console.warn(err))
+        //     .finally(() => setIsLoading(false));
     },[name]);
 
     useEffect(() => {

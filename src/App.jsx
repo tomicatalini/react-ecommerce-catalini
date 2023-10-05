@@ -1,14 +1,13 @@
 import './App.css'
+import CartContext from './context/CartContext';
 import Navigation from './routes/Navigation';
-import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
 
   return (
-    <ChakraProvider>
-      <Navigation />
-    </ChakraProvider>
-    
+      <CartContext>
+        <Navigation />
+      </CartContext>    
   )
 }
 
