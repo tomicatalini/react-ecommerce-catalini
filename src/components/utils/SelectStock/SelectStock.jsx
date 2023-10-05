@@ -1,35 +1,25 @@
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { useState } from "react";
 
-function SelectStock() {
+function SelectStock({stock}) {
     const [count, setCount] = useState(1);
 
-    const handleChange = (event) => {
-        setCount(event.target.value);
+    const handleInput = (event) => {
+        const value = event.target.value;
+        setCount(value > stock ? stock : value);
     }
 
     return (
         // <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
             <div className="">
                 <InputLabel>Cantidad</InputLabel>
-                <Select
-                    value={count}
-                    label="Cantidad"
-                    onChange={handleChange}>
-                    <MenuItem value={1}>1 Unidad</MenuItem>
-                    <MenuItem value={2}>2 Unidades</MenuItem>
-                    <MenuItem value={3}>3 Unidades</MenuItem>
-                    <MenuItem value={4}>4 Unidades</MenuItem>
-                    <MenuItem value={5}>5 Unidades</MenuItem>
-                    <MenuItem value={6}>6 Unidades</MenuItem>
-                    <MenuItem value={6}>Mas unidades</MenuItem>
-                </Select>
                 <TextField
                     type="number"
+                    onInput={handleInput}
+                    value={count}
                     InputLabelProps={{
                         shrink: true,
-                    }}
-                />
+                    }}/>
             </div>
         // </FormControl>
     )

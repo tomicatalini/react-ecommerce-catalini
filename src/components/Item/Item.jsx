@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, IconButton } from "@mui/material";
-import  AddIcon  from "@mui/icons-material/Add";
-import RemoveIcon from '@mui/icons-material/Remove';
+import { Button } from "@mui/material";
 import SelectStock from "../utils/SelectStock/SelectStock";
 
 function random(max, min){
@@ -41,11 +39,11 @@ const Item = ({title, price, category, description, image}) => {
                 <p className="font-bold text-lg">{title}</p>
                 <p className="font-bold text-2xl">$ {price}</p>
                 <div>Disponible: {stock}</div>
-                <div className="flex items-center gap-2">
-                    <SelectStock></SelectStock>
+                <SelectStock stock={stock}></SelectStock>
+                <div className="flex flex-col gap-3">
+                    <Button className="font-bold" color="primary" variant="contained">Agregar al carrito</Button>
+                    <Button className="font-bold" color="secondary" variant="contained">Comprar</Button>
                 </div>
-                <button>Agregar al carrito</button>
-                <button>Comprar</button>
             </section>
         </div>
     )
