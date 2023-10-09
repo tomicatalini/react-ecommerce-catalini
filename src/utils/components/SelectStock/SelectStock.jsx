@@ -1,12 +1,14 @@
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { InputLabel,TextField } from "@mui/material";
 import { useState } from "react";
 
-function SelectStock({stock}) {
+function SelectStock({stock, setAmount}) {
     const [count, setCount] = useState(1);
 
     const handleInput = (event) => {
-        const value = event.target.value;
-        setCount(value > stock ? stock : value);
+        const valueType = event.target.value;
+        const value = valueType > stock ? stock : valueType;
+        setCount(value);
+        setAmount(value);
     }
 
     return (

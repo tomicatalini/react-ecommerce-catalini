@@ -1,13 +1,26 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
+import Spinner from "../../utils/components/Spinner/Spinner";
+import Layout from "../../components/Layout/Layout";
+
+const order = {
+  buyer: { name: 'John Doe',
+    phone: '1155488965',
+    email: 'johndoe@example.com'
+  },
+  items: [],
+  total: 0
+}
 
 const Checkout = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <>
-        <h1>Checkout Page</h1>
-        <Link to={'/product/1'}>Detalle del Producto</Link>
-        <br />
-        <Link to={'/'}>Home</Link>
-    </>
+    isLoading
+    ? <Spinner text={'loading...'}/>
+    : <Layout>
+        
+      </Layout>
   )
 }
 

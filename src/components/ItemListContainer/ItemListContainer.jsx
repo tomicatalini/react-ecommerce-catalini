@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Spinner from "../utils/Spinner/Spinner";
+import Spinner from "../../utils/components/Spinner/Spinner";
 import { useParams } from "react-router-dom";
 import CategoryListContainer from "../CategoryListContainer/CategoryListContainer";
 import ItemList from "../ItemList/ItemList";
@@ -31,19 +31,6 @@ const ItemListContainer = () => {
             .then(prods => setProducts(prods))
             .catch(err => console.warn(err))
             .finally(() => setIsLoading(false));
-
-        // fetch('https://fakestoreapi.com/products')
-        //     .then(res => res.json())
-        //     .then( data => {
-        //         if(name){
-        //             console.log(name);
-        //             setProducts(data.filter( product => product.category === name));
-        //         } else {
-        //             setProducts(data);
-        //         }
-        //     })
-        //     .catch(err => console.warn(err))
-        //     .finally(() => setIsLoading(false));
     },[name]);
 
     useEffect(() => {
