@@ -3,8 +3,7 @@ import Spinner from "../../utils/components/Spinner/Spinner";
 import { useParams } from "react-router-dom";
 import CategoryListContainer from "../CategoryListContainer/CategoryListContainer";
 import ItemList from "../ItemList/ItemList";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../firebase/db/db";
+import { CATEGORY_COLLECTION_NAME, PRODUCT_COLLECTION_NAME, getAll, getByFilter } from "../../firebase/db/db-service";
 
 //Contenedor de Productos
 // Puede tener una categoria, la cual filtra los productos
@@ -15,33 +14,33 @@ const ItemListContainer = () => {
     const [categories, setcategories] = useState([]);
 
     useEffect(() => {
-        const productsRef = collection(db,"productos");
-        let queryResult = name ? query(productsRef, where('category',"==",name)) : productsRef;
-
-        getDocs(queryResult)
-            .then(res => {
-                let collection = [];
-
-                if(!res.empty){
-                    collection = res.docs.map(doc => ({ id:doc.id, ...doc.data()}));
-                }
-
-                return collection;
+        if(name){
+            getByFilter(PRODUCT_COLLECTION_NAME, 'category', name)
+            .then(persistedProducts => {
+                setProducts(persistedProducts);            
             })
-            .then(prods => setProducts(prods))
-            .catch(err => console.warn(err))
+            .catch(err => console.log(err))
             .finally(() => setIsLoading(false));
+            
+        } else {
+
+            getAll(PRODUCT_COLLECTION_NAME)
+            .then(persistedProducts => {
+                setProducts(persistedProducts);            
+            })
+            .catch(err => console.log(err))
+            .finally(() => setIsLoading(false));
+
+        }
     },[name]);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
-            .then(res=>res.json())
-            .then(data => {
-                setcategories(data);
-                console.log(data);
-            })
-            .catch(err => console.warn(err));
-    }, []);
+        getAll(CATEGORY_COLLECTION_NAME)
+        .then(persistedCategories => {
+            setcategories(persistedCategories);      
+        })
+        .catch(err => console.log(err));
+    },[]);
 
     return (
         isLoading 

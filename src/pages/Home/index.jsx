@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <>
             <Layout>
-                <ItemListContainer title={title} />
+                <ItemListContainer title={title} />                
             </Layout>
         </>
     )

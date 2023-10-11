@@ -8,11 +8,11 @@ const CategoryListContainer = ({categories, load}) => {
             <h2 className="font-bold">Categorias</h2>
                 
                 {
-                    categories.map( (category, index) => (
-                        <Link key={index}
+                    categories.map( category => (
+                        <Link key={category.id}
                             className="p-2 hover:bg-gray-100"                    
-                            to={`/category/${category}`} 
-                            onClick={() => load(true)}>{category[0].toUpperCase() + category.substring(1)}</Link>
+                            to={`/category/${category.key}`} 
+                            onClick={() => load(true)}>{category.description}</Link>
                     ))
                 }
             </div>

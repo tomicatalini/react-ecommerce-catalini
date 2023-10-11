@@ -1,7 +1,6 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
-import { Avatar } from "@mui/material";
-import { deepOrange } from "@mui/material/colors";
+// import { Avatar } from "@mui/material";
 
 const Navbar = () => {
     const menues = [
@@ -34,7 +33,7 @@ const Navbar = () => {
                 </nav>
                 <div className="flex flex-row gap-4">
                     <CartWidget/>
-                    <Avatar sx={{ bgcolor: deepOrange[400] }}>N</Avatar>
+                    {/* <Avatar sx={{ bgcolor: deepOrange[400] }}>N</Avatar> */}
                 </div>
             </div>
         </header>

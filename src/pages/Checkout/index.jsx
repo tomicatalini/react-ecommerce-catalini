@@ -1,26 +1,28 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import Spinner from "../../utils/components/Spinner/Spinner";
+import { useContext } from "react";
 import Layout from "../../components/Layout/Layout";
-
-const order = {
-  buyer: { name: 'John Doe',
-    phone: '1155488965',
-    email: 'johndoe@example.com'
-  },
-  items: [],
-  total: 0
-}
+import { CartCtx } from "../../context/CartContext";
 
 const Checkout = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { cart } = useContext(CartCtx);
+  
 
   return (
-    isLoading
-    ? <Spinner text={'loading...'}/>
-    : <Layout>
-        
-      </Layout>
+    <Layout>
+      <div>Checkout</div>
+      <h1>TODO</h1>
+      <ul>
+        <li>Listar todos los productos</li>
+        <li>Totalizar</li>
+        <li>
+            Crear order
+            <ul>
+              <li>Pedir datos</li>
+              <li>Obtener Id Orden</li>
+            </ul>
+        </li>
+        <li>Mostar ID Orden</li>
+      </ul>
+    </Layout>
   )
 }
 

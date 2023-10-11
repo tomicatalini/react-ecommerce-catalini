@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import Spinner from "../../utils/components/Spinner/Spinner";
 import Layout from "../../components/Layout/Layout";
-import Item from "../../components/Item/Item";
-import { get } from "../../firebase/db/dbOperations";
+import Item from "../../components/ItemDetail/ItemDetail";
+import { get } from "../../firebase/db/db-service";
 
 const ItemDetail = () => {
     const {id} = useParams();
