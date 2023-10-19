@@ -1,7 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "./db";
 
-export const PRODUCT_COLLECTION_NAME = 'productos';
+export const PRODUCT_COLLECTION_NAME = 'products';
 export const ORDER_COLLECTION_NAME = 'orders';
 export const CATEGORY_COLLECTION_NAME = 'categories';
 

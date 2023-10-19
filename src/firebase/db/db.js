@@ -21,3 +21,5 @@ export const productCollection = collection(db,'products');
 export const orderCollection = collection(db,'orders');
 export const categoryCollection = collection(db,'categories');
 
+
+

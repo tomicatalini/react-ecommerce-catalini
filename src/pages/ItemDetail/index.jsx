@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import Spinner from "../../utils/components/Spinner/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 import Layout from "../../components/Layout/Layout";
 import Item from "../../components/ItemDetail/ItemDetail";
-import { get } from "../../firebase/db/db-service";
+import { PRODUCT_COLLECTION_NAME, get } from "../../firebase/db/db-service";
 
 const ItemDetail = () => {
     const {id} = useParams();
@@ -12,7 +12,7 @@ const ItemDetail = () => {
 
     useEffect(() => {
         
-        get("productos",id)
+        get(PRODUCT_COLLECTION_NAME,id)
             .then(res => setProduct(res))
             .catch(error => console.warn(error))
             .finally(()=>setIsLoading(false));
@@ -21,7 +21,7 @@ const ItemDetail = () => {
     return (
         
         isLoading
-        ? <Spinner text={'loading...'}/>
+        ? <Spinner color={'orange'}/>
         :   <Layout>
                 <Item product={product}/>
             </Layout>

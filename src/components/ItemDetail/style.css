@@ -1,0 +1,15 @@
+.bg-image {
+    background-image: url('../../assets/images/bg-6.jpg');
+    background-blend-mode: lighten;
+}
+
+.grid-template-areas {
+    grid-template-areas: 'galery galery''aside aside''desc desc';
+}
+
+@media (min-width: 768px) {
+    .grid-template-areas {
+        grid-template-areas: 'galery galery galery aside''desc desc desc desc';
+    }
+
+}

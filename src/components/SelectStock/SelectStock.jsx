@@ -2,7 +2,7 @@ import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-function SelectStock({stock, itemsCount, setItemsCount}) {
+function SelectStock({ stock, itemsCount, setItemsCount }) {
 
     const add = () => setItemsCount( itemsCount + 1 );
 
@@ -10,9 +10,8 @@ function SelectStock({stock, itemsCount, setItemsCount}) {
 
     return (
         <div className="flex items-center select-none">
-            <p>Cantidad:</p>
             <div className=" w-fit rounded-full">
-                <IconButton color="secondary" size="small" onClick={remove} disabled={itemsCount === 1}>
+                <IconButton color="error" size="small" onClick={remove} disabled={itemsCount === 1}>
                     <RemoveIcon />
                 </IconButton>
             </div>
