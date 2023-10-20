@@ -7,14 +7,14 @@ import 'swiper/css/pagination';
 
 const Galery = () => {
   return (
-    // autoplay={{ delay: 5000, disableOnInteraction: false, }}
     <Swiper
       spaceBetween={30}
       centeredSlides={true}
       pagination={{clickable: true,}}
       navigation={true}
+      autoplay={{ delay: 3000, disableOnInteraction: false, }}
       modules={[Autoplay, Pagination, Navigation]}
-      className="h-60 w-full min-w-[800px] bg-orange-200 select-none overflow-hidden">
+      className="h-60 w-full bg-orange-200 select-none overflow-hidden">
       <SwiperSlide>
         <img className="object-fit object-bottom" src="https://firebasestorage.googleapis.com/v0/b/secondchance-ecommerce.appspot.com/o/slides%2FImagen%20de%20WhatsApp%202023-10-19%20a%20las%2018.53.01_e8b323c1.jpg?alt=media&token=dbfb4321-3482-479d-b5bf-a807cb03f747" alt="" />
       </SwiperSlide>

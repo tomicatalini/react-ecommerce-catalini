@@ -10,3 +10,4 @@ export { default as CustomMenu } from './Galery';
 export { default as ItemOrder } from './ItemOrder';
 export { default as Greetings } from './Greetings';
 export { default as CustomSnackbar } from './CustomSnackbar';
+export { default as CheckoutDialog } from './CheckoutDialog';

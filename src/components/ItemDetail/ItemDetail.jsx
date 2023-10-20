@@ -6,6 +6,7 @@ import './style.css'
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CustomSnackbar from "../CustomSnackbar";
+import { formatPrice } from "../../utils/functions";
 
 const ItemDetail = ({product}) => {
     const [ itemsCount , setItemsCount ] = useState(1);
@@ -49,7 +50,7 @@ const ItemDetail = ({product}) => {
                            
                 <aside className="[grid-area:aside] p-4 border rounded-md flex flex-col gap-2">
                     <p className="font-bold text-lg">{product.name}</p>
-                    <p className="text-2xl">$ {product.price}</p>
+                    <p className="text-2xl">{formatPrice(product.price)}</p>
                     <div className="mt-auto">Stock Disponible: {product.stock}</div>
 
                     <SelectStock stock={product.stock} itemsCount={itemsCount} setItemsCount={setItemsCount}></SelectStock>  

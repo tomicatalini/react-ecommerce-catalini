@@ -12,16 +12,18 @@ const CategoryListContainer = ({current, categories, load}) => {
     return (
         <div className="px-2 bg-white shadow-md">
             <div className="flex flex-row items-center gap-2">
-            <CustomMenu menuName={'Categorias'} options={categories}/>
+                <CustomMenu menuName={'Categorias'} options={categories}/>
+                <div className="hidden sm:flex">
+                    {
+                        categories.map( category => (
+                            <Link key={category.id}
+                                className="p-2 hover:bg-gray-100"
+                                to={`/category/${category.key}`} 
+                                onClick={handleClick}>{category.description}</Link>
+                        ))
+                    }
+                </div>
                 
-                {
-                    categories.map( category => (
-                        <Link key={category.id}
-                            className="p-2 hover:bg-gray-100"
-                            to={`/category/${category.key}`} 
-                            onClick={handleClick}>{category.description}</Link>
-                    ))
-                }
             </div>
         </div>
     );

@@ -5,9 +5,6 @@ import CategoryListContainer from "../CategoryListContainer/CategoryListContaine
 import ItemList from "../ItemList/ItemList";
 import { CATEGORY_COLLECTION_NAME, PRODUCT_COLLECTION_NAME, getAll, getByFilter } from "../../firebase/db/db-service";
 
-
-//Contenedor de Productos
-// Puede tener una categoria, la cual filtra los productos
 const ItemListContainer = () => {
     const {name} = useParams();
     const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +46,7 @@ const ItemListContainer = () => {
         : (
             <div>
                 <CategoryListContainer current={name} categories={categories} load={setIsLoading} />
-                <div className="container mx-auto my-8 px-24 grid grid-cols-12 grid-flow-row auto-rows-auto gap-8 transition-all ">
+                <div className="container mx-auto my-8 px-2 grid grid-cols-12 grid-flow-row auto-rows-auto gap-8 transition-all ">
                         {
                             products.map( product => ( product.stock > 0 &&
                                 <ItemList key={product.id}

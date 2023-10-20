@@ -17,7 +17,7 @@ const ItemCart = ({product}) => {
     }
 
     return (
-        <div className="w-full flex flex-col-reverse items-start sm:flex-row sm:items-stretch gap-2 p-2 border rounded-md bg-white">
+        <div className="w-full flex flex-col items-start sm:flex-row sm:items-stretch gap-2 p-2 border rounded-md bg-white">
            <div className="w-full flex-1 h-20 flex">
                 <picture className="h-full w-20">
                     <img src={product.image} className="w-full h-full object-contain" />
@@ -34,8 +34,8 @@ const ItemCart = ({product}) => {
                     </div>
                 </div>
            </div>
-            <div className="w-24 my-auto">
-                Cant.
+            <div className="w-full sm:w-24 bg-neutral-50 sm:bg-white flex flex-col items-center">
+                <span className="hidden sm:inline">Cant.</span>
                 <SelectStock stock={product.stock} itemsCount={quantity} setItemsCount={setQuantity} />
             </div>
             <div className="m-auto font-bold text-center">{formatPrice(product.price * quantity)}</div>
