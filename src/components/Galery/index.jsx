@@ -25,7 +25,7 @@ const Galery = () => {
         <img className="object-fit" src="https://firebasestorage.googleapis.com/v0/b/secondchance-ecommerce.appspot.com/o/slides%2FImagen%20de%20WhatsApp%202023-10-19%20a%20las%2019.05.37_6b076eb5.jpg?alt=media&token=048928e0-75c2-4edf-a37a-31b0a9886308" alt="" />
       </SwiperSlide>
       <SwiperSlide className='border'>
-        <img className="object-fit -mt-24" src="https://firebasestorage.googleapis.com/v0/b/secondchance-ecommerce.appspot.com/o/slides%2Fcristine-enero-Hh5SE7THZFI-unsplash.jpg?alt=media&token=f5819ce5-f7bb-4d7f-a002-bd84ca9d8365" alt="" />
+        <img className="object-fit sm:-mt-24" src="https://firebasestorage.googleapis.com/v0/b/secondchance-ecommerce.appspot.com/o/slides%2Fcristine-enero-Hh5SE7THZFI-unsplash.jpg?alt=media&token=f5819ce5-f7bb-4d7f-a002-bd84ca9d8365" alt="" />
       </SwiperSlide>
     </Swiper>
   )
